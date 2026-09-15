@@ -103,3 +103,43 @@ Orders span from **2016-09-04** to **2018-10-17** (2 years and 1 month). 2016 an
 - `security_and_services` has both minimal volume (2 items) and the lowest average rating (2.50)  this pattern suggests a potential problem area, though the cause would need further business context to confirm.
 
 **Known limitation:** `review_score` is recorded at the order level, not the item level. When an order contains multiple items of the same category, its review score is counted once per item in the average, this can slightly overweight categories with multi-item orders.
+
+### Question 2: Which Brazilian states have the most orders and the longest delivery times? (`03_logistics_analysis.sql`)
+
+![Orders and delivery time by state](Screenshots/05_orders_by_state.png)
+
+| State | Total Orders | Avg. Delivery (days) |
+|---|---|---|
+| SP | 40,501 | 8.8 |
+| RJ | 12,350 | 15.3 |
+| MG | 11,354 | 12.0 |
+| RS | 5,345 | 15.3 |
+| PR | 4,923 | 12.0 |
+| SC | 3,546 | 15.0 |
+| BA | 3,256 | 19.3 |
+| DF | 2,080 | 13.0 |
+| ES | 1,995 | 15.8 |
+| GO | 1,957 | 15.6 |
+| PE | 1,593 | 18.4 |
+| CE | 1,279 | 21.3 |
+| PA | 946 | 23.8 |
+| MT | 886 | 18.1 |
+| MA | 717 | 21.6 |
+| MS | 701 | 15.6 |
+| PB | 517 | 20.4 |
+| PI | 476 | 19.5 |
+| RN | 474 | 19.3 |
+| AL | 397 | 24.5 |
+| SE | 335 | 21.5 |
+| TO | 274 | 17.7 |
+| RO | 243 | 19.4 |
+| AM | 145 | 26.4 |
+| AC | 80 | 21.0 |
+| AP | 67 | 27.2 |
+| RR | 41 | 29.4 |
+
+**Key findings:**
+
+- `SP` (São Paulo) dominates in volume (40,501 orders - more than 3x the next state) and also has the fastest average delivery (8.8 days). This pattern suggests Olist's sellers/distribution infrastructure is likely concentrated in or near São Paulo, though this dataset doesn't include warehouse location data to confirm it directly.
+- `RJ`, the second-highest volume state, still takes almost double the delivery time of `SP` (15.3 vs. 8.8 days) despite relative geographic proximity, reinforcing that distance from the fulfillment hub, not demand alone, drives delivery speed.
+- The slowest-delivery states (`RR`: 29.4 days, `AP`: 27.2, `AM`: 26.4) are all in Brazil's North region, and also have the lowest order volumes, consistent with lower population density and greater logistical distance from major distribution centers.
