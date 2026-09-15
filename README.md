@@ -143,3 +143,40 @@ Orders span from **2016-09-04** to **2018-10-17** (2 years and 1 month). 2016 an
 - `SP` (São Paulo) dominates in volume (40,501 orders - more than 3x the next state) and also has the fastest average delivery (8.8 days). This pattern suggests Olist's sellers/distribution infrastructure is likely concentrated in or near São Paulo, though this dataset doesn't include warehouse location data to confirm it directly.
 - `RJ`, the second-highest volume state, still takes almost double the delivery time of `SP` (15.3 vs. 8.8 days) despite relative geographic proximity, reinforcing that distance from the fulfillment hub, not demand alone, drives delivery speed.
 - The slowest-delivery states (`RR`: 29.4 days, `AP`: 27.2, `AM`: 26.4) are all in Brazil's North region, and also have the lowest order volumes, consistent with lower population density and greater logistical distance from major distribution centers.
+
+### Question 3: Which sellers perform best in terms of sales and customer satisfaction? (`04_seller_performance.sql`)
+
+![Seller performance](Screenshots/06_seller_performance.png)
+
+Top 20 sellers by total sales (filtered to sellers with at least 20 sales, using `HAVING`, to ensure a meaningful sample size):
+
+| Seller ID | Total Sales | Items Sold | Avg. Rating |
+|---|---|---|---|
+| 4869f7a5dfa277a7dca6462dcf3b52b2 | $228,071.04 | 1,148 | 4.12 |
+| 53243585a1d6dc2643021fd1853d8905 | $220,740.05 | 408 | 4.08 |
+| 4a3ca9315b744ce9f8e9374361493884 | $200,561.42 | 1,984 | 3.80 |
+| fa1c13f2614d7b5c4749cbc52fecda94 | $192,774.43 | 582 | 4.34 |
+| 7c67e1448b00f6e969d365cea6b010ab | $188,017.85 | 1,367 | 3.35 |
+| 7e93a43ef30c4f03f38b393420bc753a | $176,201.88 | 339 | 4.21 |
+| da8622b14eb17ae2831f4ac5b9dab84a | $161,993.97 | 1,568 | 4.07 |
+| 7a67c85e85bb2ce8582c35f2203ad736 | $141,130.58 | 1,166 | 4.23 |
+| 1025f0e2d44d7041d6cf58b6550e0bfa | $139,484.38 | 1,431 | 3.85 |
+| 955fee9216a65b617aa5c0531780ce60 | $133,948.81 | 1,489 | 4.05 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | $126,166.26 | 535 | 4.18 |
+| 6560211a19b47992c3666cc44a7e94c0 | $122,484.82 | 2,020 | 3.91 |
+| 620c87c171fb2a6dd6e8bb4dec959fc6 | $114,015.30 | 790 | 4.22 |
+| 7d13fca15225358621be4086e1eb0964 | $113,091.19 | 574 | 4.00 |
+| 5dceca129747e92ff8ef7a997dc4f8ca | $110,488.73 | 342 | 3.99 |
+| 1f50f920176fa81dab994f9023523100 | $107,002.21 | 1,932 | 3.98 |
+| cc419e0650a3c5ba77189a1882b7556a | $106,059.06 | 1,811 | 4.07 |
+| a1043bafd471dff536d0c462352beb48 | $101,454.16 | 767 | 4.19 |
+| 3d871de0142ce09b7081e2b9d1733cb1 | $93,960.80 | 1,136 | 4.11 |
+| edb1ef5e36e0c8cd84eb3c9b003e486d | $79,284.55 | 175 | 4.43 |
+
+**Key findings:**
+
+- The top seller by revenue (`4869f7a5...`) also maintains a solid 4.12 rating despite high volume, a well-rounded performer on both dimensions.
+- High sales don't guarantee satisfaction: `7c67e1448b...` ranks 5th in total sales but has the lowest rating in this top 20 (3.35).
+- `edb1ef5e36...` has the smallest volume in this top 20 (175 items) but the highest rating (4.43), showing smaller sellers can outperform on satisfaction even without top-tier revenue.
+
+**Note:** seller identities in this dataset are anonymized hashes (`seller_id`); no business names are available, which is a known limitation of the publicly released Olist data.
