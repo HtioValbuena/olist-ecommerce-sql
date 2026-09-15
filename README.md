@@ -204,3 +204,12 @@ Top 20 sellers by total sales (filtered to sellers with at least 20 sales, using
 
 - Credit card share stays relatively stable across categories (57.5%–83.3%), confirming it's the dominant payment method overall rather than a category-specific pattern.
 - Average installments vary widely (1.8–6.0) and correlate with item price: `computers` has both the highest average item price ($1,070.99, from Question 1) and the highest average installments (6.0), while `electronics` has one of the lowest average prices ($56.89) and the fewest installments (1.8) consistent, cross-validated behavior between two independent queries.
+
+---
+
+## Conclusions
+
+- **Revenue leadership isn't just about volume:** `health_beauty` leads in total sales, but categories like `watches_gifts` and `computers` generate strong revenue from a higher price per item rather than high volume.
+- **Logistics performance is geographically driven:** São Paulo combines the highest order volume with the fastest delivery (8.8 days), while Brazil's North region (`RR`, `AP`, `AM`) has both the lowest volume and the slowest delivery (26–29 days) consistent with distance from likely distribution hubs.
+- **High revenue doesn't guarantee high satisfaction:** some top-selling sellers rate lower than smaller-volume sellers in the same top-20 ranking.
+- **Payment behavior confirms price-driven consumer decisions:** credit card dominates across all categories, but installment usage varies meaningfully with product price, independently validated by the price findings in Question 1.
