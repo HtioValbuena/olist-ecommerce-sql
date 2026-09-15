@@ -180,3 +180,27 @@ Top 20 sellers by total sales (filtered to sellers with at least 20 sales, using
 - `edb1ef5e36...` has the smallest volume in this top 20 (175 items) but the highest rating (4.43), showing smaller sellers can outperform on satisfaction even without top-tier revenue.
 
 **Note:** seller identities in this dataset are anonymized hashes (`seller_id`); no business names are available, which is a known limitation of the publicly released Olist data.
+
+### Question 4: How do payment methods vary across product categories? (`05_payment_analysis.sql`)
+
+![Payment behavior by category](Screenshots/07_payment_by_category.png)
+
+**Note on approach:** the initial version of this query ranked the single most common payment method per category — but `credit_card` ranked #1 in all 71 categories, showing no meaningful variation (credit card is simply the dominant payment method overall in Brazil). The query was revised to measure the *share* of credit card usage and the average number of installments per category instead.
+
+| Category | Total Payments | % Credit Card | Avg. Installments |
+|---|---|---|---|
+| computers | 220 | 79.1% | 6.0 |
+| small_appliances_home_oven_and_coffee | 78 | 83.3% | 5.5 |
+| home_appliances_2 | 268 | 69.0% | 4.1 |
+| watches_gifts | 6,201 | 78.3% | 3.7 |
+| bed_bath_table | 11,823 | 75.8% | 3.6 |
+| health_beauty | 9,972 | 75.9% | 3.0 |
+| sports_leisure | 8,945 | 74.2% | 2.5 |
+| electronics | 2,845 | 71.1% | 1.8 |
+
+*(full results for all 58 qualifying categories in the query output)*
+
+**Key findings:**
+
+- Credit card share stays relatively stable across categories (57.5%–83.3%), confirming it's the dominant payment method overall rather than a category-specific pattern.
+- Average installments vary widely (1.8–6.0) and correlate with item price: `computers` has both the highest average item price ($1,070.99, from Question 1) and the highest average installments (6.0), while `electronics` has one of the lowest average prices ($56.89) and the fewest installments (1.8) consistent, cross-validated behavior between two independent queries.
