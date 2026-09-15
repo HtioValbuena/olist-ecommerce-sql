@@ -14,6 +14,7 @@ SQL analysis of the Olist Brazilian e-commerce public dataset using PostgreSQL. 
 
 ## Project structure
 
+```
 olist-ecommerce-sql/
 ├── Queries/
 │   ├── 01_exploration.sql
@@ -23,6 +24,7 @@ olist-ecommerce-sql/
 │   └── 05_payment_analysis.sql
 ├── Screenshots/
 └── README.md
+```
 
 ## Business questions
 
